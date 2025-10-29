@@ -1,4 +1,4 @@
-name: ROS Catkin CI
+name: ROS Catkin Build
 
 on:
   push:
@@ -19,23 +19,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install build dependencies
+      - name: Install catkin and tools
         run: |
           apt-get update
-          apt-get install -y python3-catkin-tools ros-noetic-catkin build-essential cmake
+          apt-get install -y ros-noetic-catkin python3-catkin-tools build-essential
 
-      - name: Setup ROS environment
-        run: |
-          source /opt/ros/noetic/setup.bash
-          echo "ROS setup sourced successfully"
-
-      - name: Build ROS workspace
+      - name: Build with catkin_make
         run: |
           source /opt/ros/noetic/setup.bash
           cd $GITHUB_WORKSPACE
           catkin_make
 
-      - name: Run your node (optional)
+      - name: Run tests
         run: |
           source devel/setup.bash
-          rosrun your_package_name your_node_name
+          rostest your_package_name your_test_file.test
