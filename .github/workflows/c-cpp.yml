@@ -8,16 +8,22 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./main/1.robot_cleaner_move_rotate.cpp
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - uses: actions/checkout@v4
+
+      - name: Compile robot_cleaner_move_rotate
+        run: g++ ./main/1.robot_cleaner_move_rotate.cpp -o robot_cleaner_move_rotate
+
+      - name: Run robot_cleaner_move_rotate
+        run: ./robot_cleaner_move_rotate
+
+      - name: make
+        run: make
+
+      - name: make check
+        run: make check
+
+      - name: make distcheck
+        run: make distcheck
