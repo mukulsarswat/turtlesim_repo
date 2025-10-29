@@ -10,7 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ros:noetic-ros-core  # You can use melodic, humble, etc.
+      image: ros:noetic-ros-core
+
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - uses: actions/checkout@v4
@@ -26,8 +30,3 @@ jobs:
           source /opt/ros/noetic/setup.bash
           cd $GITHUB_WORKSPACE
           catkin_make
-
-      - name: Run tests
-        run: |
-          source devel/setup.bash
-          rostest your_package_name test_file.test  # optional if you have tests
