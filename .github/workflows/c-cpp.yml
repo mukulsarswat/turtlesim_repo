@@ -19,14 +19,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y python3-catkin-tools ros-noetic-catkin build-essential cmake
+
       - name: Setup ROS environment
         run: |
           source /opt/ros/noetic/setup.bash
-          apt-get update
-          apt-get install -y python3-catkin-tools build-essential
+          echo "ROS setup sourced successfully"
 
-      - name: Build ROS package
+      - name: Build ROS workspace
         run: |
           source /opt/ros/noetic/setup.bash
           cd $GITHUB_WORKSPACE
           catkin_make
+
+      - name: Run your node (optional)
+        run: |
+          source devel/setup.bash
+          rosrun your_package_name your_node_name
