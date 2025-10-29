@@ -1,7 +1,7 @@
 
 # 🐢 Turtlesim Cleaner
 
-A ROS-based simulation project that demonstrates autonomous cleaning strategies using the Turtlesim environment. This repository follows the [ROS Tutorial Series (Part 4)](https://www.youtube.com/playlist?list=PLSzYQGCXRW1HLWHdJ7ehZPA-nn7R9UKPa) and showcases multiple motion planning techniques for full-area coverage—similar to robotic vacuum cleaners.
+A ROS-based simulation project that demonstrates autonomous cleaning strategies using the Turtlesim environment. This repository  showcases multiple motion planning techniques for full-area coverage—similar to robotic vacuum cleaners.
 
 >  **Note:**  Implementation based on [YouTube tutorials](https://www.youtube.com/playlist?list=PLSzYQGCXRW1HLWHdJ7ehZPA-nn7R9UKPa).
 
