@@ -14,6 +14,7 @@ This package contains five C++ implementations, each demonstrating a unique clea
 | File | Description |
 |------|-------------|
 | `robot_cleaner_move_rotate.cpp` | Basic movement and rotation logic |
+| `robot_cleaner_abs_orientation.cpp` | Absolute orientation control |
 
 ---
 
